@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontForge</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="MainLogo.png" alt="logo">
+        <div class="settings">
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="solarized">Solarized</option>
+                <option value="cyberpunk">Cyberpunk</option>
+            </select>
+
+            <label for="fontSize">Font Size:</label>
+            <select id="fontSize">
+                <option value="14px">14px</option>
+                <option value="16px" selected>16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+            </select>            
+        </div>  
+    </div>
+    <div class="codeeditor-container">
+        <div class="codeeditor-html">
+            <div class="head-editor">
+                <div class="left-head">
+                    <img src="html.png" alt="html-logo" width="25px">
+                    <span>HTML</span>
+                </div>
+                <div class="right-head">
+                    <button class="copy-btn copy1"><i class="fa-solid fa-copy"></i></button>
+                    <button><i class="fa-solid fa-file-import"></i></button>
+                    <button><i class="fa-solid fa-file-export"></i></button>
+                </div>
+            </div>
+            <div class="editor-wrapper">
+                <div class="line-numbers">1</div>
+                <textarea class="code-input html-input" spellcheck="false"></textarea>
+                <div class="resizer" id="resizer-html"></div>
+            </div>
+        </div>
+        <div class="codeeditor-css">
+            <div class="head-editor">
+                <div class="left-head">
+                    <img src="css.png" alt="css-logo" width="30px">
+                    <span>CSS</span>
+                </div>
+                <div class="right-head">
+                    <button class="copy-btn copy2"><i class="fa-solid fa-copy"></i></button>
+                    <button><i class="fa-solid fa-file-import"></i></button>
+                    <button><i class="fa-solid fa-file-export"></i></button>
+                </div>
+            </div>
+            <div class="editor-wrapper">
+                <div class="line-numbers">1</div>
+                <textarea class="code-input css-input" spellcheck="false"></textarea>
+                <div class="resizer" id="resizer-css"></div>
+            </div>
+        </div>
+        <div class="codeeditor-js">
+            <div class="head-editor">
+                <div class="left-head">
+                    <img src="js.png" alt="js-logo" width="30px">
+                    <span>JS</span>
+                </div>
+                <div class="right-head">
+                    <button class="copy-btn copy3"><i class="fa-solid fa-copy"></i></button>
+                    <button><i class="fa-solid fa-file-import"></i></button>
+                    <button><i class="fa-solid fa-file-export"></i></button>
+                </div>
+            </div>
+            <div class="editor-wrapper">
+                <div class="line-numbers">1</div>
+                <textarea class="code-input js-input" spellcheck="false"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="output-container">
+        <div class="output-head">
+            <span>Output</span>
+            <button id="save-output"><i class="fa-solid fa-floppy-disk"></i></button>
+            <button id="fullscreen-output"><i class="fa-solid fa-circle-chevron-up"></i></button>
+        </div>
+        <iframe id="output"></iframe>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,409 @@
+/* General Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Default Light Theme */
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: white;
+    --editor-bg: #f5f5f5;
+    --border-color: #ccc;
+}
+
+/* Dark Theme */
+.dark-theme {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --editor-bg: #252526;
+    --border-color: #555;
+}
+
+/* Custom Theme 1 (Solarized) */
+.solarized-theme {
+    --bg-color: #002b36;
+    --text-color: #839496;
+    --editor-bg: #073642;
+    --border-color: #586e75;
+}
+
+/* Custom Theme 2 (Cyberpunk) */
+.cyberpunk-theme {
+    --bg-color: #0d0221;
+    --text-color: #ff00ff;
+    --editor-bg: #1a032d;
+    --border-color: #ff0090;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+/* Header Styling */
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+}
+
+.header img {
+    height: 120px; /* Adjusted to fit the header */
+}
+
+/* Move settings to the right corner */
+.settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    position: absolute;
+    right:10px; /* Adjust as needed */
+}
+
+.settings label {
+    font-size: 14px;
+}
+
+.settings select {
+    padding: 5px;
+    border-radius: 4px;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+/* Horizontal Layout: Editor on left, Output on right */
+
+/* Code Editor Container */
+.codeeditor-container {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--editor-bg);
+    border: 1px solid var(--border-color);
+    overflow: auto;
+}
+
+/* Individual Code Editor Sections */
+.codeeditor-html,
+.codeeditor-css,
+.codeeditor-js {
+    flex: 1;
+    background-color: #282c34;
+    border: 2px solid rgba(255, 255, 255, 0.105);
+    border-radius: 20px;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    box-shadow: 2px, 2px, 2px black;
+}
+.editor-wrapper {
+    display: flex;
+    border: none;
+    background:#282c34;
+    color: white;
+    font-family: monospace;
+    height: 290px;
+}
+
+.line-numbers {
+    width: 40px;
+    padding: 5px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.491);
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.code-input {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color:var(--text-color);
+    font-size: 16px;
+    line-height: 20px;
+    resize: none;
+    outline: none;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+}
+
+/* Scrollbar for all textareas */
+textarea::-webkit-scrollbar {
+    width: 4px;  /* Adjust scrollbar width (vertical) */
+    height: 4px; /* Adjust scrollbar height (horizontal) */
+}
+
+/* Scrollbar track (background) */
+textarea::-webkit-scrollbar-track {
+    background: #1e1e1e; /* Dark background */
+    border-radius: 10px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+textarea::-webkit-scrollbar-thumb {
+    background: #555;  /* Gray color */
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+/* Scrollbar thumb on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #888;  /* Lighter gray on hover */
+}
+
+/* Horizontal scrollbar */
+textarea {
+    overflow-x: auto;  /* Ensure horizontal scrolling is enabled */
+    white-space: pre;  /* Prevent text from wrapping */
+    word-wrap: normal; /* Ensure long words do not wrap */
+}
+
+
+
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .codeeditor-container {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+/* Top Bar for Code Editor */
+.head-editor {
+    width: 100%;
+    height: 60px;
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0px 0px 40px 40px;
+}
+.left-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.right-head {
+    display: flex;
+    gap: 8px;
+}
+.right-head,button{
+    background: #282c34;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+.right-head,button:hover{
+    scale: 120%;
+}
+
+.output-container{
+    width: 100%;
+    height: 242px;
+    box-shadow: 2px -4px 10px rgb(36, 71, 72);
+    color: rgba(255, 255, 255, 0.491);
+    z-index: 1;
+    position:fixed;
+    bottom: 0;
+    transition: .5s;
+    background-color: var(--editor-bg);
+    border: 1px solid var(--border-color);
+}
+.output-head{
+    width: 100%;
+    height: 60px;
+    background-color:#1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 20px;
+    gap: 10px;
+}
+.output-head button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.output-head span {
+    font-size: 18px;
+    font-weight: bold;
+}
+.output-head button:hover {
+    transform: scale(1.2);
+}
+
+#output {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+}
+
+#fullscreen-output{
+    transition: all 0.5s;
+}
+.output-fullScreen{
+    height: 100%;
+}
+
+.html-input::selection {
+    background-color: orange;
+}
+
+.css-input::selection {
+    background-color: rgba(0, 128, 255, 0.788);
+}
+
+.js-input::selection {
+    background-color: rgb(255, 213, 0);
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+    .horizontal-layout, .vertical-layout {
+        flex-direction: column;
+    }
+
+    .codeeditor-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .codeeditor-html,
+    .codeeditor-css,
+    .codeeditor-js {
+        width: 100%;
+        min-height: 200px; /* Prevents shrinking too much */
+    }
+
+    .editor-wrapper {
+        height: auto;
+    }
+
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .settings {
+        position: relative;
+        right: auto;
+        justify-content: center;
+    }
+
+    .layout-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    /* Adjust Output Container */
+    .output-container {
+        position: relative;
+        height: 300px;
+        bottom: 0;
+        width: 100%;
+    }
+
+    /* Reduce Header Size */
+    .head-editor {
+        height: 50px;
+        padding: 5px;
+    }
+
+    .output-head {
+        height: 50px;
+        padding: 10px;
+    }
+
+    /* Reduce Button Sizes */
+    .right-head button {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 600px) {
+    .header img {
+        height: 80px;
+    }
+
+    .codeeditor-container {
+        padding: 5px;
+        gap: 3px;
+    }
+
+    .editor-wrapper {
+        height: 180px;
+    }
+
+    .settings select {
+        font-size: 12px;
+        padding: 3px;
+    }
+
+    .output-container {
+        height: 250px;
+    }
+
+    .output-head button {
+        font-size: 14px;
+    }
+}
+
+.codeeditor-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.codeeditor-html, .codeeditor-css, .codeeditor-js {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.resizer {
+    width: 5px;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
